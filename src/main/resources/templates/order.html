@@ -7,7 +7,10 @@
     <title>Order Page</title>
 </head>
 <body>
-    <div style="padding-top: 10%;">
+
+    <h1 style="text-align: center; font-family: cursive;">PANNUCI's PIZZA</h1>
+    
+    <div style="padding-top: 1%;">
         <table style="border: 1px solid black; margin-right: auto; margin-left: auto; padding: 40px; margin-top: 40px;" data-th-object="${order}">
             <tr>
                 <td><h1>Your Order</h1></td>
@@ -26,14 +29,20 @@
             </tr>
             <tr>
                 <td>
+                    Pizza Ordered:
+                    <span data-th-text="${order.getPizzaName()}"></span> x <span data-th-text="${order.getPizzaQuantity()}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     Pizza Cost:
                     $<span data-th-text="${order.getPizzaCost()}"></span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Rush:
-                    <span data-th-text="${order.getRush()} ? '$2' : ''"></span>
+                    
+                    <span data-th-text="${order.getRush()} ? 'Rush: $2' : ''"></span>
                 </td>
             </tr>
             <tr>

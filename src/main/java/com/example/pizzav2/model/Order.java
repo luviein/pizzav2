@@ -1,10 +1,12 @@
 package com.example.pizzav2.model;
 
 import java.io.Serializable;
+import java.io.StringReader;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
+import jakarta.json.JsonReader;
 
 public class Order implements Serializable {
     private String id;
@@ -82,6 +84,22 @@ public class Order implements Serializable {
             .build();
     }
 
+    //to parse JSON String
+    public static JsonObject readJSON(String json){
+        JsonReader r = Json.createReader(new StringReader(json));
+        return r.readObject();
+    }
    
+    //reads parsed JSON, Pizza and Delivery class will use the JsonObject and set into their variables
+    public static Order getFromJSON(String jsonStr){
+        JsonObject o = readJSON(jsonStr);
+        Pizza p = Pizza.getFromJSON(o);
+        Delivery d = Delivery.getFromJSON(o);
+        Order ord = new Order(p, d);
+        ord.setId(o.getString("orderId"));
+        ord.setTotalCost(o.getJsonNumber("total").doubleValue());
 
+        return ord;
+
+    }
 }

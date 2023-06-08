@@ -2,6 +2,7 @@ package com.example.pizzav2.model;
 
 import java.io.Serializable;
 
+import jakarta.json.JsonObject;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -63,6 +64,18 @@ public class Delivery implements Serializable {
                 + ", comments=" + comments + "]";
     }
 
+    //set JSON to Delivery Object retrieved by Order ID
+
+    public static Delivery getFromJSON(JsonObject o){
+        Delivery d = new Delivery();
+        d.setName(o.getString("name"));
+        d.setAddress(o.getString("address"));
+        d.setComments(o.getString("comments"));
+        d.setPhone(o.getString("phone"));
+        d.setRush(o.getBoolean("rush"));
+
+        return d;
+    }
     
     
 

@@ -2,6 +2,7 @@ package com.example.pizzav2.model;
 
 import java.io.Serializable;
 
+import jakarta.json.JsonObject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -47,6 +48,14 @@ public class Pizza implements Serializable {
         return "Pizza [pizza=" + pizza + ", size=" + size + ", quantity=" + quantity + "]";
     }
 
-    
+    //set JSON to Pizza Object retrieved by Order ID
+    public static Pizza getFromJSON(JsonObject o){
+        Pizza p = new Pizza();
+        p.setPizza(o.getString("pizza"));
+        p.setQuantity(o.getInt("quantity"));
+        p.setSize(o.getString("size"));
+
+        return p;
+    }
     
 }

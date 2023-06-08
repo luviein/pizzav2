@@ -1,3 +1,17 @@
+## FINAL VIEWS
+
+### VIEW ZERO
+
+
+### VIEW ONE
+
+
+### VIEW TWO
+
+
+### VIEW FOUR
+
+
 ## TASK ONE 
 
 1. Set up Springboot application with relevant dependencies
@@ -57,3 +71,25 @@
 
 ### REPOSITORY CLASS
 1. Create a save method to store ID(key) and values of Order in JSON format
+
+## TASK FOUR
+
+### PIZZA, DELIVERY CLASS
+1. Add a method to receive JSON data and set it to their local attributes
+
+### ORDER CLASS
+1. Create a JsonReader to parse incoming JSON data
+2. Add in the Pizza & Delivery objects that have already set their attributes
+3. Create a new Order instance
+4. Set Order's attributes
+
+### REST CONTROLLER
+1. Create rest controller to get JSON data based on ID in path variable
+2. If order is not found, return error code 404
+3. If order is found, get the Order object from Optional > convert to JSON > display as a string
+
+### REPOSITORY CLASS
+1. Create a method to get JSON data based on ID in the path variable
+
+### SERVICE CLASS
+1. Create method that calls get ID from repo
