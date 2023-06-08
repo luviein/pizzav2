@@ -2,14 +2,19 @@
 
 ### VIEW ZERO
 
+![Screenshot 2023-06-08 235749](https://github.com/luviein/pizzav2/assets/116507666/8dce913e-ec70-4b9e-b874-ee961f684283)
 
 ### VIEW ONE
 
+![Screenshot 2023-06-08 235818](https://github.com/luviein/pizzav2/assets/116507666/b616a3e5-ae33-4eb2-9623-940c303a4a57)
 
 ### VIEW TWO
 
+![Screenshot 2023-06-08 235839](https://github.com/luviein/pizzav2/assets/116507666/209f85e4-735f-4ed0-9e72-cc20647544d0)
 
 ### VIEW FOUR
+
+![Screenshot 2023-06-08 235849](https://github.com/luviein/pizzav2/assets/116507666/8eef4d87-0184-4f96-bad0-773719c01f90)
 
 
 ## TASK ONE 
