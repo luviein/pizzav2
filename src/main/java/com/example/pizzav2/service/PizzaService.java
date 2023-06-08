@@ -5,15 +5,23 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 
+import com.example.pizzav2.model.Delivery;
+import com.example.pizzav2.model.Order;
 import com.example.pizzav2.model.Pizza;
+import com.example.pizzav2.repository.PizzaRepo;
 
 @Service
 public class PizzaService {
+
+    @Autowired
+    private PizzaRepo repo;
     
     private final static String[] PIZZA_NAMES = {
         "bella",
@@ -55,5 +63,59 @@ public class PizzaService {
         }
 
         return errors;
+    }
+
+ 
+    // private Order createPizzaOrder(Pizza p, Delivery d){
+        
+    //     Order o = new Order(p, d);
+        
+    //     return o;
+    // }
+
+    private double calculateCost(Order o){
+        double total = 0d;
+        switch(o.getPizzaName()){
+            case "bella", "spianatacalabrese", "marinara" :
+                total += 30;
+                break;
+            case "margherita":
+                total += 22;
+                break;
+            case "trioformaggio":
+                total += 25;
+                break;
+
+        }
+
+        switch(o.getPizzaSize()){
+            case "sm":
+                total *= 1;
+                break;
+            case "md":
+                total *= 1.2;
+                break;
+            case "lg":
+                total *= 1.5;
+                break;
+        }
+
+        total *= o.getPizzaQuantity();
+        if(o.getRush()){
+            total += 2;
+        }
+        o.setTotalCost(total);
+        return total;
+
+    }
+
+       //generate random UUID for pizza order 
+    public Order savePizzaOrder(Pizza p, Delivery d){
+        String orderUUID =  UUID.randomUUID().toString().substring(0,8);
+        Order o = new Order(p, d);
+        o.setId(orderUUID);
+        calculateCost(o);
+        repo.save(o);
+        return o;
     }
 }

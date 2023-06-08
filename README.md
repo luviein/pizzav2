@@ -21,3 +21,27 @@
 2. Compare if selected pizza is in the final pizza name
     - EG: Curry chicken is not in the final list = format an error message
 3. Create constructor that generates Hash Set of final pizza names and pizza size
+
+
+## TASK THREE
+
+## DELIVERY MODEL
+1. Add in properties that will be found in form
+2. Add in validation as per requirements
+
+
+## DELIVERY FORM HTML
+1. Create delivery form
+2. Add in validation for errors
+
+## CONTROLLER CLASS
+1. Add in Post Mapping for /pizza/orders for when the form is being submitted
+2. Display binding result errors
+
+## ORDER MODEL
+1. To combine both Pizza and Delivery details + random ID + calculated total cost
+2. Set get pizza cost to be displayed in HTML (if isRush = true, -2, else retain total cost)
+
+## SERVICE CLASS
+1. Create a method to generate UUID of 8 numbers
+2. Create a method to calculate the cost of the pizzas

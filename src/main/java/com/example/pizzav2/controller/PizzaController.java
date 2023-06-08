@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.pizzav2.model.Delivery;
+import com.example.pizzav2.model.Order;
 import com.example.pizzav2.model.Pizza;
 import com.example.pizzav2.service.PizzaService;
 
@@ -52,8 +53,15 @@ public class PizzaController {
             if(result.hasErrors()){
                 return "delivery";
             }
+
+            //gets Pizza object that was stored in session with "pizza" key
+            Pizza p = (Pizza) session.getAttribute("pizza");
+            Order o = pSvc.savePizzaOrder(p, delivery);
+            m.addAttribute("order", o);
+            return "order";
+
         
-        return "delivery";
+
     }
     
    

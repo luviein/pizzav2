@@ -6,12 +6,13 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class Delivery implements Serializable {
     
     @NotNull(message="Name is required")
     @NotBlank(message="Name is required")
-    @Min(value=3, message="Minimum of 3 characters")
+    @Size(min=3, message="Minimum of 3 characters")
     private String name;
 
     @NotNull(message="Phone Number is required")
