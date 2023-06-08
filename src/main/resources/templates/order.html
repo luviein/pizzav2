@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order Page</title>
 </head>
 <body>
-    <h1>Order</h1>
+    <div style="padding-top: 10%;">
+        <table style="border: 1px solid black; margin-right: auto; margin-left: auto; padding: 40px; margin-top: 40px;" data-th-object="${order}">
+            <tr>
+                <td><h1>Your Order</h1></td>
+            </tr>
+            <tr>
+                <td>
+                Order ID:
+                <a data-th-href="@{/order/{id}(id=${order.id})}"
+                    data-th-text="*{id}"></a></td>
+            </tr>
+            <tr>
+                <td >
+                    Address:
+                    <span data-th-text="${order.getAddress()}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Pizza Cost:
+                    $<span data-th-text="${order.getPizzaCost()}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rush:
+                    <span data-th-text="${order.getRush()} ? '$2' : ''"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total Cost:
+                    $<span data-th-text="${order.getTotalCost()}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

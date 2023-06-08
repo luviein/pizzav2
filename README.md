@@ -46,6 +46,10 @@
 2. Set get pizza cost to be displayed in HTML (if isRush = true, -2, else retain total cost)
 3. Build from Java Object to JSON to be stored in Redis
 
+### ORDER FORM HTML
+1. Add necessary fields
+2. Data-th-object is linked to the m.addAttribute of order that was saved in Controller  
+
 ### SERVICE CLASS
 1. Create a method to generate UUID of 8 numbers
 2. Create a method to calculate the cost of the pizzas
