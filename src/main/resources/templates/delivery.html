@@ -4,9 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Delivery</title>
+    <style>
+        td{
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>delivery</h1>
+    
+    <div class="container">
+        <form action="/pizza/order" method="post" data-th-object="${delivery}">
+            <table style="border: 1px solid black; padding: 20px; margin-left:auto; margin-right: auto;">
+                <tr>
+                    <td><h1 style="text-align: center;">Order Delivery Details</h1></td>
+                </tr>
+                
+                <tr>
+                    <td>Name: <input type="text" name="name" id="name" placeholder="Your name" data-th-field="*{name}">
+               
+                    <div data-th-if="${#fields.hasErrors('name')}">
+                        <span data-th-errors="*{name}" data-th-errorclass="error"></span>
+                    </div>
+                    </td>
+                </tr>
+             
+                </tr>
+                <tr>
+                    <td>Address: <input type="text" name="address" id="address" placeholder="Your address" data-th-field="*{address}">
+                    <div data-th-if="${#fields.hasErrors('address')}">
+                        <span data-th-errors="*{address}" data-th-errorclass="error"></span>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone: <input type="tel" name="phone" id="phone" placeholder="Your telephone number" data-th-field="*{phone}">
+                    <div data-th-if="${#fields.hasErrors('phone')}">
+                        <span data-th-errors="*{phone}" data-th-errorclass="error"></span>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rush? <input type="checkbox" name="rush" id="rush" data-th-field="*{rush}"></td>
+                  
+                </tr>
+                <tr>
+                    <td>Comments: <textarea name="comments" id="comments" cols="20" rows="7" data-th-field="*{comments}" placeholder="Your comments"></textarea></td>
+                  
+                    
+                </tr>
+                <tr>
+                    <td style="text-align:center;"><button type="submit">Place Order</button></td>
+                </tr>
+            </table>
+
+
+        </form>
+    </div>
 </body>
 </html>

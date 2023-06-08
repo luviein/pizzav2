@@ -46,6 +46,15 @@ public class PizzaController {
         return "delivery";
             
     }
+
+    @PostMapping(path="/pizza/order")
+        public String placeOrder(HttpSession session, @Valid Delivery delivery, BindingResult result, Model m) {
+            if(result.hasErrors()){
+                return "delivery";
+            }
+        
+        return "delivery";
+    }
     
    
 }
